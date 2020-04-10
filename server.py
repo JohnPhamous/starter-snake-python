@@ -1,13 +1,6 @@
 import os
 import random
-
 import cherrypy
-
-"""
-This is a simple Battlesnake server written in Python.
-For instructions see https://github.com/BattlesnakeOfficial/starter-snake-python/README.md
-"""
-
 
 class Battlesnake(object):
     @cherrypy.expose
@@ -26,10 +19,9 @@ class Battlesnake(object):
     def start(self):
         # This function is called everytime your snake is entered into a game.
         # cherrypy.request.json contains information about the game that's about to be played.
-        # TODO: Use this function to decide how your snake is going to look on the board.
         data = cherrypy.request.json
         print("START")
-        return {"color": "#888888", "headType": "regular", "tailType": "regular"}
+        return {"color": "#bd93f9", "headType": "evil", "tailType": "pixel"}
 
     @cherrypy.expose
     @cherrypy.tools.json_in()
