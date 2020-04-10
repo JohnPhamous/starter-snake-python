@@ -29,8 +29,16 @@ class Battlesnake(object):
     def move(self):
         # This function is called on every turn of a game. It's how your snake decides where to move.
         # Valid moves are "up", "down", "left", or "right".
-        # TODO: Use the information in cherrypy.request.json to decide your next move.
-        data = cherrypy.request.json
+        board = cherrypy.request.json['board']
+        boardHeight = board['height']
+        boardWidth = board['width']
+        food = board['food']
+        otherSnakes = board['snakes']
+        numOtherSnakes = len(otherSnakes)
+
+        self_snake = cherrypy.request.json['you']
+        health = self_snake['health']
+        body = self_snake['body']
 
         # Choose a random direction to move in
         possible_moves = ["up", "down", "left", "right"]
